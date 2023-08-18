@@ -15,7 +15,7 @@ const projectReducer=(state=intial, action)=>{
        case 'ADDFAIL' :
              return action.payload;
              case 'DELETEPROJECT' :
-                return action.payload;
+                return state.filter((data) => data._id !== action.payload);
            case 'DELETEFAIL' :
                  return action.payload;
         default :

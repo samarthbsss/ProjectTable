@@ -14,7 +14,7 @@ import '../Css/table.css'
 
 const Main =()=>{
     const tableData = useSelector((state) => state.data);
-    // console.log(tableData);
+    console.log(tableData);
 
     const dispatch = useDispatch();
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -67,36 +67,10 @@ const Main =()=>{
       }, []);
     
 
-      
-      // const handleAddItem = async () => {
-      //   try {
-  
-      //     await axios.post('api/data', newItem);
-         
-      //     fetchData();
-      //     setNewItem({
-      //       itemdesc: '',
-      //       ttlreference: '',
-      //       hydtest: '',
-      //     });
-      //   } catch (error) {
-      //     console.error(error);
-      //   }
-      // };
-    
-      // const handleDeleteItem =async(index) => {
-      //   try {
-      //     dispatch(deleteData(index));
-      //     dispatch(fetchData());
-      //   } catch (error) {
-      //     console.log("error while deleting")
-      //   }
-     
-      // };
 
-      const handleDeleteItem = async (index) => {
+      const handleDeleteItem = (index) => {
         try {
-          await axios.delete(`api/data/${index}`);
+          dispatch(deleteData(index)); 
           dispatch(fetchData());
         } catch (error) {
           console.error(error);
@@ -126,13 +100,45 @@ const Main =()=>{
     
     return <>
     <div margin='2px'>
-    <button className="open-button" onClick={ exportPDF}>Generate Rate</button>
+    <button className="open-button" onClick={ exportPDF}>Generate Report</button>
       <button className="open-button"  onClick={openModal}>Add</button>    </div>
         
       <ModalForm className="close-button" isOpen={modalIsOpen} closeModal={closeModal} />
       <table>
+        <tbody>
+        
+          <tr>
+          <th>Documents required for quality dossier from ndt</th>  
+          </tr>
+          {/* <tr >  
+          <th>Customer</th>
+          <td>Something</td>
+          </tr>
+          <tr>
+            <th>
+              Contact.No
+            </th>
+            <td>
+              phone no:
+            </td>
+            <th>
+              Turbine Srno
+            </th>
+            <td>42</td>
+          </tr> */}
+        </tbody>
+      </table>
+      <table>
       <tbody>
-        {tableData.map((item, index) => (
+        <tr>
+          <th>Sl NO</th>
+          <th>ITEM DESC</th>
+          <th>TTL Reference </th> 
+          <th>HYD TEST</th> 
+          <th>DATE</th>
+          <th>ACTION</th>
+        </tr>
+        {tableData?.map((item, index) => (
           <tr key={index}>
             <td>{index + 1}</td>
             <td>
@@ -166,11 +172,14 @@ const Main =()=>{
               )}
             </td>
             <td>
-              {editingIndex === index ? (
-                <button onClick={() => handleSaveRow(index)}>Save</button>
+            {item.date}
+            </td>
+            <td>
+              {editingIndex ===  index ? (
+                <button onClick={() => handleSaveRow(item._id)}>Save</button>
               ) : (
-                <div display='flex'>
-                <FiEdit2  onClick={() => handleEditRow(index)}/>
+                <div className='iconbox'>
+                  <FiEdit2  onClick={() => handleEditRow(index)}/>
                   <MdDelete  onClick={() => handleDeleteItem(item._id)}/>
             
                 </div>

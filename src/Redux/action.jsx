@@ -4,6 +4,7 @@ export const fetchData = () => {
     return async(dispatch)=>{
         try {
             const res = await axios.get('api/data');
+            
             dispatch({
                 type:"PROJECTS",
                 payload:res.data

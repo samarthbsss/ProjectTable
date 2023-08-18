@@ -16,3 +16,11 @@ table {
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+  .iconbox{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    margin: auto;
+    padding: auto;
+    
+  }
