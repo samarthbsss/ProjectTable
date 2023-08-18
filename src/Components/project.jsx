@@ -108,9 +108,6 @@ import {
       }
     };
   
-
-
-   
   const handleEditRow = (index) => {
     setEditingIndex(index);
   };
