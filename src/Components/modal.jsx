@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import "../Css/modal.css";
-import { addData } from "../Redux/action";
-import axios from "axios";
+import { addData, fetchData } from "../Redux/action";
 
-Modal.setAppElement("#root"); // Set the root element for accessibility
+Modal.setAppElement("#root");
 
 const customStyles = {
   content: {
@@ -23,20 +22,22 @@ const ModalForm = ({ isOpen, closeModal }) => {
     itemdesc: "",
     ttlreference: "",
     hydtest: "",
-    date:""
+    date: "",
   });
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(newItem);
     dispatch(addData(newItem));
+    // dispatch(fetchData());
     closeModal();
     setNewItem({
       itemdesc: "",
       ttlreference: "",
       hydtest: "",
-      date:"",
+      date: "",
     });
   };
 
@@ -48,7 +49,7 @@ const ModalForm = ({ isOpen, closeModal }) => {
       contentLabel="Modal Form"
     >
       <h2>Modal Form</h2>
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Item Desc</label>
           <input
@@ -84,12 +85,10 @@ const ModalForm = ({ isOpen, closeModal }) => {
         <div>
           <label>DATE</label>
           <input
-            type='date'
+            type="date"
             placeholder="date"
             value={newItem.date}
-            onChange={(e) =>
-              setNewItem({ ...newItem, date: e.target.value })
-            }
+            onChange={(e) => setNewItem({ ...newItem, date: e.target.value })}
           />
         </div>
         <button className="modal-button" type="submit">

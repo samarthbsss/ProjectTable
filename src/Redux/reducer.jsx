@@ -10,6 +10,7 @@ const projectReducer=(state=intial, action)=>{
             return action.payload;
         case 'PROFAIL':
             return action.payload;
+        
         case 'ADDPROJECT' :
             return [...state, action.payload];
        case 'ADDFAIL' :
@@ -23,8 +24,24 @@ const projectReducer=(state=intial, action)=>{
   }
 }
 
+const projectnameReducer =(state=intial, action)=>{
+    switch(action.type){
+        case 'PROJECTNAME' :
+            return action.payload
+        case 'PRONAMEFAIL' :
+            return action.payload;
+            case 'ADDPROJECTNAME' :
+                return [...state, action.payload];
+           case 'ADDPROJECTFAIL' :
+                 return action.payload;
+        default :
+        return state;
+    }
+}
+
 
 const rootReducer = combineReducers({
+    project:projectnameReducer,
     data:projectReducer
 })
 

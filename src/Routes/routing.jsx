@@ -3,13 +3,19 @@ import {Routes, Route} from "react-router-dom";
 import { Project } from '../Components/project';
 import Main from '../Components/pro';
 import axios from 'axios';
+import Search from '../Components/search';
+import { Data } from '../Components/data';
 
-axios.defaults.baseURL ='https://adorable-swimsuit-hare.cyclic.cloud';
+// axios.defaults.baseURL ='https://adorable-swimsuit-hare.cyclic.cloud';
+axios.defaults.baseURL ='http://localhost:8080';
+
 const Routing = () => {
     return <>
     <Routes>
-        <Route path='/' element={<Project/>}/>
-        <Route path='/hi' element={<Main/>}/>   
+        <Route path='/' element={<Search/>}/>
+        <Route path='/test' element={<Project/>}/>
+        <Route path='/project' element={<Main/>}/>   
+        <Route path='/data/' element ={<Data/>}/>
     </Routes>
     </>;
 }

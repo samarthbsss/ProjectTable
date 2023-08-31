@@ -1,8 +1,11 @@
-table {
-    
+.maintable{
     border-collapse: collapse;
-    width: 80%;
+    width: 100%;
   }
+.titletable{
+  border-collapse: collapse;
+  width: 100%;
+}
   
   td, th {
     border: 1px solid #dddddd;
@@ -23,4 +26,17 @@ table {
     margin: auto;
     padding: auto;
     
+  }
+  .buttonbox{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    margin: auto;
+    padding: auto;
+  }
+  #tablecontent{
+   justify-content: center;
+   align-items: center;
+    width: 80%;
   }
