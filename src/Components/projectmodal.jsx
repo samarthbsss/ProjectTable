@@ -18,7 +18,7 @@ const customStyles = {
 const ProjectModalForm = ({ isOpen, closeModal }) => {
     const [newItem, setNewItem] = useState({
       customer: "",
-      // contactno: "",
+      contactno: "",
      turbineframesr: "",
     
     });
@@ -61,7 +61,7 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
                 }
               />
             </div>
-            {/* <div>
+            <div>
               <label>contactno</label>
               <input
                 type="text"
@@ -71,7 +71,7 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
                   setNewItem({ ...newItem, contactno: e.target.value })
                 }
               />
-            </div> */}
+            </div>
             <div>
               <label> turbineframesr</label>
               <input 
