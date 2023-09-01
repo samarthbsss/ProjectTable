@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useFetcher, useLocation } from "react-router-dom";
 import axios from "axios";
+import "../Css/data.css"
 
 export const Data = (props) => {
   const [projectdata, setprojectdata] = useState({});
@@ -32,7 +33,7 @@ export const Data = (props) => {
   return (
     <>
       <h1 className="heading">This is the data page</h1>
-      <div>
+      <div id="content">
         <table id="maintable">
           <tbody>
             {/* <caption>helo</caption> */}
@@ -85,7 +86,7 @@ export const Data = (props) => {
                 2
               </th>
               <th rowSpan={2} scope="rowgroup">
-               Exhast End Casing
+                Exhast End Casing
               </th>
 
               <th scope="row">Top</th>
@@ -120,6 +121,118 @@ export const Data = (props) => {
               <td></td>
             </tr>
             <tr>
+              <th scope="rowgroup">4</th>
+              <th colSpan={2} scope="rowgroup">
+                Stop $ Emergency valve Body -I
+              </th>
+
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="rowgroup">5</th>
+              <th colSpan={2} scope="rowgroup">
+                Stop $ Emergency valve Body -II
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th  scope="rowgroup">
+                6
+              </th>
+              <th  colSpan={2}scope="rowgroup">
+                Stop $ Emergency valve Column -I
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th  scope="rowgroup">
+                6
+              </th>
+              <th  colSpan={2}scope="rowgroup">
+                Stop $ Emergency valve Column -II
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th  scope="rowgroup">
+                8
+              </th>
+              <th  colSpan={2}scope="rowgroup">
+               Nozzle Chest
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th  scope="rowgroup">
+              9
+              </th>
+              <th  colSpan={2}scope="rowgroup">
+             Throttle Valve Column -I
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th  scope="rowgroup">
+              9
+              </th>
+              <th  colSpan={2}scope="rowgroup">
+             Throttle Valve Column -I
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th  scope="rowgroup">
+              11
+              </th>
+              <th  colSpan={2}scope="rowgroup">
+             Throttle Valve Column -III
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th  scope="rowgroup">
+              12
+              </th>
+              <th  colSpan={2}scope="rowgroup">
+             Throttle Valve Column -IV
+              </th>
+
+              {/* <th scope="row">Top</th> */}
+              <td></td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr>
               <th rowSpan={2} scope="rowgroup">
                 20
               </th>
@@ -129,7 +242,7 @@ export const Data = (props) => {
 
               <th scope="row">Hp</th>
               <td></td>
-              <td ></td>
+              <td></td>
               <td></td>
             </tr>
             <tr>
@@ -149,13 +262,13 @@ export const Data = (props) => {
 
               <th scope="row">Top</th>
               <td></td>
-              <td ></td>
+              <td></td>
               <td></td>
             </tr>
             <tr>
               <th scope="row">Bottom</th>
               <td></td>
-              <td ></td>
+              <td></td>
               <td></td>
             </tr>
             <tr>
@@ -168,14 +281,13 @@ export const Data = (props) => {
 
               <th scope="row">Top</th>
               <td></td>
-              <td ></td>
+              <td></td>
               <td colSpan={8}></td>
             </tr>
             <tr>
               <th scope="row">Bottom</th>
               <td></td>
-              <td  colSpan={4} rowSpan={5}></td>
-           
+              <td colSpan={4} rowSpan={5}></td>
             </tr>
             <tr>
               <th rowSpan={2} scope="rowgroup">
@@ -194,7 +306,6 @@ export const Data = (props) => {
               <th scope="row">Bottom</th>
               <td></td>
               {/* <td ></td> */}
-              
             </tr>
             <tr>
               <th rowSpan={2} scope="rowgroup">
@@ -213,10 +324,7 @@ export const Data = (props) => {
               <th scope="row">Bottom</th>
               <td></td>
               {/* <td ></td> */}
-             
             </tr>
-           
-           
           </tbody>
         </table>
       </div>
