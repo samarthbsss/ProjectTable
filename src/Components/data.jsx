@@ -1,16 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useFetcher, useLocation } from "react-router-dom";
 import axios from "axios";
-import "../Css/data.css"
+import "../Css/data.css";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
-export const Data = (props) => {
-  const [projectdata, setprojectdata] = useState({});
+export const Data = (props) => {  
+  const [data, getdata]=useState({});
+  const [projectdata, setprojectdata] = useState({
+    steamend: {
+      top: {
+        ttldesc: '',
+        hyd: '',
+        date: '',
+      },
+      bottom: {
+        ttldesc: '',
+        date:  Date,
+      },
+    },
+    exhastendcasing: {
+      top: {
+        ttldesc: '',
+        hyd: '',
+        date:  Date,
+      },
+      bottom: {
+        ttldesc: '',
+        date:  Date,
+      },
+    },
+  });
   const location = useLocation();
   // const getData =()=>{
 
   // }
   const { item } = location.state;
-  const { from } = location.state;
+  // const { from } = location.state;
   // console.log(item , from);
   // console.log(props.location);
 
@@ -18,22 +44,44 @@ export const Data = (props) => {
     fetchData(item);
   }, {});
 
+  
+
   const fetchData = async () => {
     try {
-      const res = await axios.get(`api/project/&{item}`);
-      setprojectdata(res.data);
+      const res = await axios.get(`api/project/${item}`);
+      getdata(res.data);
       console.log("fetch successful");
-      console.log(projectdata);
+      console.log(data);
     } catch (error) {
       console.log("not working", error);
     }
   };
-  console.log(projectdata);
+  // console.log(projectdata);
+  console.log("data from usestate", projectdata);
+
+
+  const handleData= async()=>{
+    try {
+      await axios.post(`api/project/${item}/update`, projectdata);
+      console.log("worked");
+      // fetchData();
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <>
       <h1 className="heading">This is the data page</h1>
+      <div id="buttonbox">
+      <button
+       onClick={handleData}
+        >Save</button>
+      </div>
       <div id="content">
+      
+
+        
         <table id="maintable">
           <tbody>
          
@@ -47,13 +95,13 @@ export const Data = (props) => {
               <td>
                 <h1>Customer :</h1>
               </td>
-              <td colSpan={5}>{projectdata.customer}</td>
+              <td colSpan={5}>{data.customer}</td>
             </tr>
             <tr>
               <td>Contant No:</td>
-              <td>{projectdata.contactno}</td>
+              <td>{data.contactno}</td>
               <td>TurbineFrame SrNo :</td>
-              <td colSpan={3}>{projectdata.turbineframesr}</td>
+              <td colSpan={3}>{data.turbineframesr}</td>
             </tr>
             <tr>
               <th>Sl no</th>
@@ -71,9 +119,54 @@ export const Data = (props) => {
               </th>
 
               <th scope="row">Top</th>
-              <td></td>
-              <td rowSpan={2}></td>
-              <td></td>
+              <td><textarea
+                id="steamendcasing"
+                type="text"
+                // value={projectdata.steamend.top.ttldesc} 
+                onChange={(e) =>
+                  setprojectdata({
+                    ...projectdata,
+                    steamend: {
+                      ...projectdata.steamend, 
+                      top: {
+                        ...projectdata.steamend.top, 
+                        ttldesc: e.target.value, 
+                      },
+                    },
+                  })
+                }
+              /></td>
+              
+              <td rowSpan={2}><textarea
+                type="text"
+                onChange={(e) =>
+                  setprojectdata({
+                    ...projectdata,
+                    steamend: {
+                      ...projectdata.steamend, 
+                      top: {
+                        ...projectdata.steamend.top, 
+                        hyd: e.target.value, 
+                      },
+                    },
+                  })
+                }
+              ></textarea></td>
+              <td><input
+              type="date"
+              onChange={(e) =>
+                setprojectdata({
+                  ...projectdata,
+                  steamend: {
+                    ...projectdata.steamend, 
+                    top: {
+                      ...projectdata.steamend.top, 
+                     date: e.target.value, 
+                    },
+                  },
+                })
+              }
+              /></td>
             </tr>
             <tr>
               <th scope="row">Bottom</th>
@@ -496,6 +589,7 @@ export const Data = (props) => {
             </tr>
           </tbody>
         </table>
+       
       </div>
     </>
   );
