@@ -20,6 +20,202 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
       customer: "",
       contactno: "",
      turbineframesr: "",
+     steamend:[ 
+      {
+        top: {
+          ttldesc: '',
+          hyd: '',
+          date: '',
+        },
+        bottom: {
+          ttldesc: "",
+          date: "",
+        },
+      }],
+      exhastendcasing: [{
+        top: {
+            ttldesc: "",
+            hyd: "",
+            date: ""
+        },
+        bottom: {
+            ttldesc: "",
+            date: ""
+        }
+    }],
+    innercasing: [{
+        top: {
+            ttldesc: "",
+            hyd: "",
+            date: ""
+        },
+        bottom: {
+            ttldesc: "",
+            date: ""
+        }
+    }],
+    stop$emergencyvalvebody1: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    stop$emergencyvalvebody2: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    stop$emergencyvalvebody3: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    stop$emergencyvalvebody4: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    nozzlechest: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    throttlevalve1: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    throttlevalve2: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    throttlevalve3: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    throttlevalve4: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    passoutmanifold: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    passinvalvecolumn1: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    passinvalvecolumn2: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    passinvalvecolumn3: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    passinvalvecolumn4: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    throttlevalvebox: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    power: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    rotor: {
+        ttldesc: "",
+        hyd: "",
+    },
+    nozzle: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    blades: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    gearboxbottom: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    controlvalvebody: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    baseplate: {
+        ttldesc: "",
+        date: ""
+    },
+    gearbox: {
+        ttldesc: "",
+        date: ""
+    },
+    hppedestal: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    lppedestal: {
+        ttldesc: "",
+        hyd: "",
+        date: ""
+    },
+    guidebladecarrier1: [{
+        top: {
+            ttldesc: "",
+            hyd: ""
+        },
+        bottom: {
+            ttldesc: "",
+
+        }
+    }],
+    guidebladecarrier2: [{
+        top: {
+            ttldesc: "",
+
+        },
+        bottom: {
+            ttldesc: "",
+
+        }
+    }],
+    guidebladecarrier3: [{
+        top: {
+            ttldesc: "",
+
+        },
+        bottom: {
+            ttldesc: "",
+
+        }
+    }],
+    guidebladecarrier4: [{
+        top: {
+            ttldesc: "",
+
+        },
+        bottom: {
+            ttldesc: "",
+
+        }
+    }],
     
     });
   
