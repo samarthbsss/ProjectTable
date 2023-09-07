@@ -189,7 +189,8 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
         bottom: {
             ttldesc: "",
 
-        }
+        },
+       
     }],
     guidebladecarrier2: [{
         top: {
@@ -223,7 +224,7 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
     }],
     
     });
-  
+
     const dispatch = useDispatch();
   
     const handleSubmit = (e) => {
