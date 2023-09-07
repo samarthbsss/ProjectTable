@@ -531,12 +531,46 @@ export const Data = (props) => {
         { content: "Guide Blade Carrier-I", rowSpan: 2 },
         "Top",
         `${projectdata.guidebladecarrier1[0].top.ttldesc}`,
-       { colSpan:6, rowSpan:8, content:`${projectdata.guidebladecarrier1[0].top.hyd}`}
+       { styles: {textalign:"center"}, colSpan:2, rowSpan:8, content:`${projectdata.guidebladecarrier1[0].top.hyd}`}
       ],
       [
         "Bottom",
        { content: `${projectdata.guidebladecarrier1[0].bottom.ttldesc}`},
-      ]
+      ],
+      [
+        {content:"31", rowSpan:2},
+         { content: "Guide Blade Carrier-II", rowSpan: 2 },
+         "Top",
+         `${projectdata.guidebladecarrier2[0].top.ttldesc}`,
+      
+       ],
+       [
+         "Bottom",
+    `${projectdata.guidebladecarrier2[0].bottom.ttldesc}`,
+       ],
+       [
+        {content:"32", rowSpan:2},
+         { content: "Guide Blade Carrier-III", rowSpan: 2 },
+         "Top",
+         `${projectdata.guidebladecarrier3[0].top.ttldesc}`,
+      
+       ],
+       [
+         "Bottom",
+       `${projectdata.guidebladecarrier3[0].bottom.ttldesc}`,
+       ],
+       [
+        {content:"33", rowSpan:2},
+         { content: "Guide Blade Carrier-IV", rowSpan: 2 },
+         "Top",
+         `${projectdata.guidebladecarrier4[0].top.ttldesc}`,
+      
+       ],
+       [
+         "Bottom",
+      `${projectdata.guidebladecarrier4[0].bottom.ttldesc}`,
+       ]
+
 
    
     ];
