@@ -8,208 +8,219 @@ import "jspdf-autotable";
 export const Data = (props) => {
   const [data, getdata] = useState({});
   const [loading, setLoading] = useState(true);
-  const [add, addingitems]= useState(false);
+  const [add, addingitems] = useState(false);
   const [projectdata, setprojectdata] = useState({
     customer: "",
     contactno: "",
     turbineframesr: "",
-    steamend:[ 
+    steamend: [
       {
         top: {
-          ttldesc: '',
-          hyd: '',
-          date: '',
+          ttldesc: "",
+          hyd: "",
+          date: "",
         },
         bottom: {
           ttldesc: "",
           date: "",
         },
-      }],
-    
-    exhastendcasing: [{
-      top: {
-        ttldesc: '',
-        hyd: '',
-        date:  Date,
       },
-      bottom: {
-        ttldesc: '',
-        date:  Date,
-      },
-    }],
-    innercasing: [{
-      top: {
+    ],
+
+    exhastendcasing: [
+      {
+        top: {
           ttldesc: "",
           hyd: "",
-          date: ""
+          date: "",
+        },
+        bottom: {
+          ttldesc: "",
+          date: "",
+        },
       },
-      bottom: {
+    ],
+    innercasing: [
+      {
+        top: {
           ttldesc: "",
-          date: ""
-      }
-  }],
-  stop$emergencyvalvebody1: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  stop$emergencyvalvebody2: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  stop$emergencyvalvebody3: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  stop$emergencyvalvebody4: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  nozzlechest: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  throttlevalve1: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  throttlevalve2: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  throttlevalve3: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  throttlevalve4: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  passoutmanifold: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  passinvalvecolumn1: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  passinvalvecolumn2: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  passinvalvecolumn3: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  passinvalvecolumn4: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  throttlevalvebox: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  power: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  rotor: {
-      ttldesc: "",
-      hyd: "",
-  },
-  nozzle: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  blades: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  gearboxbottom: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  controlvalvebody: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  baseplate: {
-      ttldesc: "",
-      date: ""
-  },
-  gearbox: {
-      ttldesc: "",
-      date: ""
-  },
-  hppedestal: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  lppedestal: {
-      ttldesc: "",
-      hyd: "",
-      date: ""
-  },
-  guidebladecarrier1: [{
-      top: {
+          hyd: "",
+          date: "",
+        },
+        bottom: {
           ttldesc: "",
-          hyd: ""
+          date: "",
+        },
       },
-      bottom: {
+    ],
+    stop$emergencyvalvebody1: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    stop$emergencyvalvebody2: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    stop$emergencyvalvebody3: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    stop$emergencyvalvebody4: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    nozzlechest: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    throttlevalve1: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    throttlevalve2: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    throttlevalve3: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    throttlevalve4: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    passoutmanifold: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    passinvalvecolumn: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+  },
+    passinvalvecolumn1: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    passinvalvecolumn2: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    passinvalvecolumn3: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    passinvalvecolumn4: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    throttlevalvebox: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    power: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    rotor: {
+      ttldesc: "",
+      hyd: "",
+    },
+    nozzle: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    blades: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    gearboxbottom: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    controlvalvebody: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    baseplate: {
+      ttldesc: "",
+      date: "",
+    },
+    gearbox: {
+      ttldesc: "",
+      date: "",
+    },
+    hppedestal: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    lppedestal: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+    },
+    guidebladecarrier1: [
+      {
+        top: {
           ttldesc: "",
-
-      }
-  }],
-  guidebladecarrier2: [{
-      top: {
+          hyd: "",
+        },
+        bottom: {
           ttldesc: "",
-
+        },
       },
-      bottom: {
+    ],
+    guidebladecarrier2: [
+      {
+        top: {
           ttldesc: "",
-
-      }
-  }],
-  guidebladecarrier3: [{
-      top: {
+        },
+        bottom: {
           ttldesc: "",
-
+        },
       },
-      bottom: {
+    ],
+    guidebladecarrier3: [
+      {
+        top: {
           ttldesc: "",
-
-      }
-  }],
-  guidebladecarrier4: [{
-      top: {
+        },
+        bottom: {
           ttldesc: "",
-
+        },
       },
-      bottom: {
+    ],
+    guidebladecarrier4: [
+      {
+        top: {
           ttldesc: "",
-
-      }
-  }],
+        },
+        bottom: {
+          ttldesc: "",
+        },
+      },
+    ],
   });
   const location = useLocation();
   const { item } = location.state;
@@ -221,13 +232,9 @@ export const Data = (props) => {
   const fetchData = async () => {
     try {
       const res = await axios.get(`api/project/${item}`);
-      // getdata(res.data);
       setprojectdata(res.data);
-      //  set(res.data);
-      console.log("fetch successful", projectdata);
-      // console.log(data);
+      console.log("fetch successful", res.data);
       setLoading(false);
-      // console.log("After setState:", projectdata);
     } catch (error) {
       console.log("not working", error);
     }
@@ -236,21 +243,38 @@ export const Data = (props) => {
   const handleData = async () => {
     try {
       await axios.post(`api/project/${item}/update`, projectdata);
-
       fetchData(item);
-      console.log("worked");
+      // console.log("worked");
     } catch (error) {
       console.error(error);
     }
   };
-  // console.log
 
+  const handleDataChange =(e,category, data)=>{
+    setprojectdata((projectdata )=>({
+      ...projectdata,
+      [category]:{
+        ...projectdata[category],
+     
+          [data] : e.target.value
+       
+        
+      },
+      // ...projectdata.category.slice(1),
+    }))
+    // console.log(e.target.value ,category ,data);
+    console.log(projectdata, "from handle Datachange");
+
+  }
+  
   return (
     <>
       <h1 className="heading">This is the data page</h1>
       <div id="buttonbox">
         <button onClick={handleData}>Save</button>
-        <button margin="20px" onClick={(e)=>addingitems(false)}>Edit</button>
+        <button margin="20px" onClick={(e) => addingitems(false)}>
+          Edit
+        </button>
       </div>
       <div id="content">
         <table id="maintable">
@@ -260,7 +284,6 @@ export const Data = (props) => {
                 <h1>Document Required for Quality Dossier From Ndt</h1>
               </th>
             </tr>
-
             <tr>
               <td>
                 <h1>Customer :</h1>
@@ -287,50 +310,47 @@ export const Data = (props) => {
               <th rowSpan={2} scope="rowgroup">
                 Steam End Casing
               </th>
-
               <th scope="row">Top</th>
               <td>
-             
-                  <textarea
-                    id="steamendcasing"
-                    type="text"
-                    value={projectdata.steamend[0]?.top?.ttldesc || ""}
-                    onChange={(e) =>
-                      setprojectdata((projectdata)=>({
-                        ...projectdata,
-                        steamend:[ {
+                <textarea
+                  id="steamendcasing"
+                  type="text"
+                  value={projectdata.steamend[0]?.top?.ttldesc || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      steamend: [
+                        {
                           ...projectdata.steamend[0],
                           top: {
                             ...projectdata.steamend[0].top,
-                           ttldesc: e.target.value,
+                            ttldesc: e.target.value,
                           },
                         },
                         ...projectdata.steamend.slice(1),
                       ],
-                      }))
-                    }
-                  />
-               
-               
+                    }))
+                  }
+                />
               </td>
-
               <td rowSpan={2}>
                 <textarea
                   type="text"
                   // value={data.steamend}
                   value={projectdata.steamend[0]?.top?.hyd || ""}
                   onChange={(e) =>
-                    setprojectdata((projectdata)=>({
+                    setprojectdata((projectdata) => ({
                       ...projectdata,
-                      steamend:[ {
-                        ...projectdata.steamend[0],
-                        top: {
-                          ...projectdata.steamend[0].top,
-                          hyd: e.target.value,
+                      steamend: [
+                        {
+                          ...projectdata.steamend[0],
+                          top: {
+                            ...projectdata.steamend[0].top,
+                            hyd: e.target.value,
+                          },
                         },
-                      },
-                      ...projectdata.steamend.slice(1),
-                    ],
+                        ...projectdata.steamend.slice(1),
+                      ],
                     }))
                   }
                 ></textarea>
@@ -338,19 +358,22 @@ export const Data = (props) => {
               <td>
                 <input
                   type="date"
-                  value={projectdata.steamend[0]?.top?.date?.split('T')[0] || ""}
+                  value={
+                    projectdata.steamend[0]?.top?.date?.split("T")[0] || ""
+                  }
                   onChange={(e) =>
-                    setprojectdata((projectdata)=>({
+                    setprojectdata((projectdata) => ({
                       ...projectdata,
-                      steamend: [{
-                        ...projectdata.steamend[0],
-                        top: {
-                          ...projectdata.steamend[0].top,
-                          date: e.target.value,
+                      steamend: [
+                        {
+                          ...projectdata.steamend[0],
+                          top: {
+                            ...projectdata.steamend[0].top,
+                            date: e.target.value,
+                          },
                         },
-                      },
-                      ...projectdata.steamend.slice(1),
-                    ],
+                        ...projectdata.steamend.slice(1),
+                      ],
                     }))
                   }
                 />
@@ -359,48 +382,49 @@ export const Data = (props) => {
             <tr>
               <th scope="row">Bottom</th>
               <td>
-              <textarea
-                    id="steamendcasing"
-                    type="text"
-                    value={projectdata.steamend[0]?.bottom?.ttldesc || ""}
-                    onChange={(e) =>
-                      setprojectdata((projectdata)=>({
-                        ...projectdata,
-                        steamend:[ {
+                <textarea
+                  id="steamendcasing"
+                  type="text"
+                  value={projectdata.steamend[0]?.bottom?.ttldesc || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      steamend: [
+                        {
                           ...projectdata.steamend[0],
-                         bottom: {
+                          bottom: {
                             ...projectdata.steamend[0].bottom,
-                           ttldesc: e.target.value,
+                            ttldesc: e.target.value,
                           },
                         },
                         ...projectdata.steamend.slice(1),
                       ],
-                      }))
-                    }
-                  />
-             
-              </td>
-              <td>
-              <input
-                  type="date"
-                  value={projectdata.steamend[0]?.bottom?.date?.split('T')[0] || ""}
-                  onChange={(e) =>
-                    setprojectdata((projectdata)=>({
-                      ...projectdata,
-                      steamend: [{
-                        ...projectdata.steamend[0],
-                       bottom: {
-                          ...projectdata.steamend[0].bottom,
-                          date: e.target.value,
-                        },
-                      },
-                      ...projectdata.steamend.slice(1),
-                    ],
                     }))
                   }
                 />
-        
-
+              </td>
+              <td>
+                <input
+                  type="date"
+                  value={
+                    projectdata.steamend[0]?.bottom?.date?.split("T")[0] || ""
+                  }
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      steamend: [
+                        {
+                          ...projectdata.steamend[0],
+                          bottom: {
+                            ...projectdata.steamend[0].bottom,
+                            date: e.target.value,
+                          },
+                        },
+                        ...projectdata.steamend.slice(1),
+                      ],
+                    }))
+                  }
+                />
               </td>
             </tr>
             <tr>
@@ -413,54 +437,123 @@ export const Data = (props) => {
 
               <th scope="row">Top</th>
               <td>
-              <textarea
-                    id="exhastendcasing"
-                    type="text"
-                    value={projectdata.exhastendcasing[0]?.top?.ttldesc || ""}
-                    onChange={(e) =>
-                      setprojectdata((projectdata)=>({
-                        ...projectdata,
-                        exhastendcasing:[ {
+                <textarea
+                  id="exhastendcasing"
+                  type="text"
+                  value={projectdata.exhastendcasing[0]?.top?.ttldesc || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      exhastendcasing: [
+                        {
                           ...projectdata.exhastendcasing[0],
-                        top: {
+                          top: {
                             ...projectdata.exhastendcasing[0].top,
-                           ttldesc: e.target.value,
+                            ttldesc: e.target.value,
                           },
                         },
                         ...projectdata.exhastendcasing.slice(1),
                       ],
-                      }))
-                    }
-                  />
-
+                    }))
+                  }
+                />
               </td>
               <td rowSpan={2}>
-              <textarea
-                    id="exhastendcasing"
-                    type="text"
-                    value={projectdata.exhastendcasing[0]?.top?.hyd || ""}
-                    onChange={(e) =>
-                      setprojectdata((projectdata)=>({
-                        ...projectdata,
-                        exhastendcasing:[ {
+                <textarea
+                  // id="exhastendcasing"
+                  type="text"
+                  value={projectdata.exhastendcasing[0]?.top?.hyd || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      exhastendcasing: [
+                        {
                           ...projectdata.exhastendcasing[0],
-                        hyd: {
-                            ...projectdata.exhastendcasing[0].hyd,
-                           ttldesc: e.target.value,
+                          top: {
+                            ...projectdata.exhastendcasing[0].top,
+                            hyd: e.target.value,
                           },
                         },
                         ...projectdata.exhastendcasing.slice(1),
                       ],
-                      }))
-                    }
-                  />
+                    }))
+                  }
+                />
               </td>
-              <td></td>
+              <td>
+              <input
+                  // id="exhastendcasing"
+                  type="date"
+                  value={
+                    projectdata.exhastendcasing[0]?.top?.date?.split("T")[0] || ""
+                  }
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      exhastendcasing: [
+                        {
+                          ...projectdata.exhastendcasing[0],
+                          top: {
+                            ...projectdata.exhastendcasing[0].top,
+                            date: e.target.value,
+                          },
+                        },
+                        ...projectdata.exhastendcasing.slice(1),
+                      ],
+                    }))
+                  }
+                />
+              </td>
             </tr>
             <tr>
               <th scope="row">Bottom</th>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="exhastendcasing"
+                  type="text"
+                  value={projectdata.exhastendcasing[0]?.bottom?.ttldesc || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      exhastendcasing: [
+                        {
+                          ...projectdata.exhastendcasing[0],
+                          bottom: {
+                            ...projectdata.exhastendcasing[0].bottom,
+                            ttldesc: e.target.value,
+                          },
+                        },
+                        ...projectdata.exhastendcasing.slice(1),
+                      ],
+                    }))
+                  }
+                />
+              </td>
+              <td>
+              <input
+                  // id="exhastendcasing"
+                  type="date"
+                  value={
+                    projectdata.exhastendcasing[0]?.bottom?.date?.split("T")[0] || ""
+                  }
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      exhastendcasing: [
+                        {
+                          ...projectdata.exhastendcasing[0],
+                          bottom: {
+                            ...projectdata.exhastendcasing[0].bottom,
+                            date: e.target.value,
+                          },
+                        },
+                        ...projectdata.exhastendcasing.slice(1),
+                      ],
+                    }))
+                  }
+                />
+
+              </td>
             </tr>
 
             <tr>
@@ -472,15 +565,121 @@ export const Data = (props) => {
               </th>
 
               <th scope="row">Top</th>
-              <td></td>
-              <td rowSpan={2}></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="innercasing"
+                  type="text"
+                  value={projectdata.innercasing[0]?.top?.ttldesc || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      innercasing: [
+                        {
+                          ...projectdata.innercasing[0],
+                          top: {
+                            ...projectdata.innercasing[0].top,
+                            ttldesc: e.target.value,
+                          },
+                        },
+                        ...projectdata.innercasing.slice(1),
+                      ],
+                    }))
+                  }
+                />
+              </td>
+              <td rowSpan={2}>
+              <textarea
+                  id="innercasing"
+                  type="text"
+                  value={projectdata.innercasing[0]?.top?.hyd || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      innercasing: [
+                        {
+                          ...projectdata.innercasing[0],
+                          top: {
+                            ...projectdata.innercasing[0].top,
+                            hyd: e.target.value,
+                          },
+                        },
+                        ...projectdata.innercasing.slice(1),
+                      ],
+                    }))
+                  }
+                />
+
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={
+                    projectdata.innercasing[0]?.top?.date?.split("T")[0] || ""
+                  }
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      innercasing: [
+                        {
+                          ...projectdata.innercasing[0],
+                          top: {
+                            ...projectdata.innercasing[0].top,
+                            date: e.target.value,
+                          },
+                        },
+                        ...projectdata.innercasing.slice(1),
+                      ],
+                    }))
+                  }
+                />
+              </td>
             </tr>
             <tr>
               <th scope="row">Bottom</th>
-              <td></td>
+              <td>
+              <textarea
+                  id="innercasing"
+                  type="text"
+                  value={projectdata.innercasing[0]?.bottom?.ttldesc || ""}
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      innercasing: [
+                        {
+                          ...projectdata.innercasing[0],
+                          bottom: {
+                            ...projectdata.innercasing[0].bottom,
+                            ttldesc: e.target.value,
+                          },
+                        },
+                        ...projectdata.innercasing.slice(1),
+                      ],
+                    }))
+                  }
+                />
+              </td>
 
-              <td></td>
+              <td><input
+                  type="date"
+                  value={
+                    projectdata.innercasing[0]?.bottom?.date?.split("T")[0] || ""
+                  }
+                  onChange={(e) =>
+                    setprojectdata((projectdata) => ({
+                      ...projectdata,
+                      innercasing: [
+                        {
+                          ...projectdata.innercasing[0],
+                         bottom: {
+                            ...projectdata.innercasing[0].bottom,
+                            date: e.target.value,
+                          },
+                        },
+                        ...projectdata.innercasing.slice(1),
+                      ],
+                    }))
+                  }
+                /></td>
             </tr>
             <tr>
               <th scope="rowgroup">4</th>
@@ -488,54 +687,174 @@ export const Data = (props) => {
                 Stop & Emergency valve Body -I
               </th>
 
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+                <textarea
+                  id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody1.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody1", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody1.hyd}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody1", "hyd")}
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  value={projectdata.stop$emergencyvalvebody1?.date?.split("T")[0]|| ""}
+                  onChange={(e)=> handleDataChange(e, "stop$emergencyvalvebody1" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">5</th>
               <th colSpan={2} scope="rowgroup">
                 Stop & Emergency valve Body -II
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody2.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody2", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody2.hyd}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody2", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.stop$emergencyvalvebody2?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "stop$emergencyvalvebody2" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">6</th>
               <th colSpan={2} scope="rowgroup">
                 Stop & Emergency valve Column -I
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody3.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody3", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody3.hyd}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody3", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.stop$emergencyvalvebody3?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "stop$emergencyvalvebody3" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">6</th>
               <th colSpan={2} scope="rowgroup">
                 Stop & Emergency valve Column -II
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody4.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody4", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.stop$emergencyvalvebody4.hyd}
+                  onChange={(e)=>handleDataChange(e, "stop$emergencyvalvebody4", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.stop$emergencyvalvebody4?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "stop$emergencyvalvebody4" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">8</th>
               <th colSpan={2} scope="rowgroup">
                 Nozzle Chest
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="nozzlechest"
+                  type="text"
+                  value={projectdata.nozzlechest.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "nozzlechest", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.nozzlechest.hyd}
+                  onChange={(e)=>handleDataChange(e, "nozzlechest", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.nozzlechest?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "nozzlechest" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">9</th>
               <th colSpan={2} scope="rowgroup">
                 Throttle Valve Column -I
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="throttlevalve1"
+                  type="text"
+                  value={projectdata.throttlevalve1.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve1", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.throttlevalve1.hyd}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve1", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.throttlevalve1?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "throttlevalve1" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">10</th>
@@ -543,66 +862,203 @@ export const Data = (props) => {
                 Throttle Valve Column -II
               </th>
 
-              {/* <th scope="row">Top</th> */}
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="throttlevalve2"
+                  type="text"
+                  value={projectdata.throttlevalve2.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve2", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.throttlevalve2.hyd}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve2", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.throttlevalve2?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "throttlevalve2" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">11</th>
               <th colSpan={2} scope="rowgroup">
                 Throttle Valve Column -III
               </th>
-
-              {/* <th scope="row">Top</th> */}
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="throttlevalve3"
+                  type="text"
+                  value={projectdata.throttlevalve3.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve3", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.throttlevalve3.hyd}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve3", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.throttlevalve3?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "throttlevalve3" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">12</th>
               <th colSpan={2} scope="rowgroup">
                 Throttle Valve Column -IV
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="throttlevalve4"
+                  type="text"
+                  value={projectdata.throttlevalve4.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve4", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.throttlevalve4.hyd}
+                  onChange={(e)=>handleDataChange(e, "throttlevalve4", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.throttlevalve4?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "throttlevalve4" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">13</th>
               <th colSpan={2} scope="rowgroup">
                 Pass Out Manifold
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td>
+                <textarea
+                    id="passoutmanifold"
+                    type="text"
+                    value={projectdata.passoutmanifold.ttldesc}
+                    onChange={(e)=>handleDataChange(e, "passoutmanifold", "ttldesc")}
+                  />
+                </td>
+                <td>
+                <textarea
+                    // id="stop&"
+                    type="text"
+                    value={projectdata.passoutmanifold.hyd}
+                    onChange={(e)=>handleDataChange(e, "passoutmanifold", "hyd")}
+                  />
+                </td>
+                <td>
+                <input
+                    type="date"
+                    value={projectdata.passoutmanifold?.date?.split("T")[0] || ""}
+                    onChange={(e)=> handleDataChange(e, "passoutmanifold" ,"date")}
+                  />
+                </td>
             </tr>
             <tr>
               <th scope="rowgroup">14</th>
               <th colSpan={2} scope="rowgroup">
                 Pass in valve chest
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="passinvalvecolumn"
+                  type="text"
+                  value={projectdata.passinvalvecolumn.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "passinvalvecolumn", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.passinvalvecolumn.hyd}
+                  onChange={(e)=>handleDataChange(e, "passinvalvecolumn", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.passinvalvecolumn?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "passinvalvecolumn" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">15</th>
               <th colSpan={2} scope="rowgroup">
-                Pass in valve Column -I
+                Pass in valve Column -I 
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="passinvalvecolumn1"
+                  type="text"
+                  value={projectdata.passinvalvecolumn1.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "passinvalvecolumn1", "ttldesc")}
+                />
+              </td> 
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.passinvalvecolumn1.hyd}
+                  onChange={(e)=>handleDataChange(e, "passinvalvecolumn1", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.passinvalvecolumn1?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "passinvalvecolumn1" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">16</th>
               <th colSpan={2} scope="rowgroup">
                 Pass in valve Column -II
               </th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+              <textarea
+                  id="passinvalvecolumn2"
+                  type="text"
+                  value={projectdata.passinvalvecolumn2.ttldesc}
+                  onChange={(e)=>handleDataChange(e, "passinvalvecolumn2", "ttldesc")}
+                />
+              </td>
+              <td>
+              <textarea
+                  // id="stop&"
+                  type="text"
+                  value={projectdata.passinvalvecolumn2.hyd}
+                  onChange={(e)=>handleDataChange(e, "passinvalvecolumn2", "hyd")}
+                />
+              </td>
+              <td>
+              <input
+                  type="date"
+                  value={projectdata.passinvalvecolumn2?.date?.split("T")[0] || ""}
+                  onChange={(e)=> handleDataChange(e, "passinvalvecolumn2" ,"date")}
+                />
+              </td>
             </tr>
             <tr>
               <th scope="rowgroup">17</th>

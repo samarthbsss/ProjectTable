@@ -104,6 +104,11 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
         hyd: "",
         date: ""
     },
+    passinvalvecolumn: {
+      ttldesc: "",
+      hyd: "",
+      date: "",
+  },
     passinvalvecolumn1: {
         ttldesc: "",
         hyd: "",
