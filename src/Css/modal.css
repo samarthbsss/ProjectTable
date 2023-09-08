@@ -12,21 +12,101 @@
   .modal-button:hover {
     background-color: #0056b3;
   }
+  .custom-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    @media (max-width: 600px) {
+      max-width: 90%;
+      padding: 10px;
+    }
+  }
   
-  /* Styling for the open and close buttons */
-  /* .open-button {
-    background-color: #4caf50;
-    color: #ffffff;
+  .modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    /* Example: Adjust navigation menu for smaller screens */
+    .nav-menu {
+      flex-direction: column;
+    }
+    .nav-item {
+      margin: 10px 0;
+    }
+  
+    /* Example: Adjust other website sections */
+    .section {
+      padding: 20px;
+    }
+  }
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .submit-button,
+  .close-button {
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
+    font-size: 1rem;
     cursor: pointer;
   }
   
-  .open-button:hover {
-    background-color: #45a049;
-  } */
+  .submit-button {
+    background-color: #4caf50;
+    color: white;
+  }
   
+  .close-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .submit-button:hover,
+  .close-button:hover {
+    opacity: 0.8;
+  }
   .close-button {
     background-color: #f44336;
     color: #ffffff;
@@ -39,6 +119,9 @@
   .close-button:hover {
     background-color: #d32f2f;
   }
+
+
+
   .open-button {
     align-items: center;
     appearance: none;

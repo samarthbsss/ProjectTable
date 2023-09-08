@@ -13,7 +13,7 @@ const Search = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [isloading, setLoading]=useState(true);
+  const [isloading, setLoading] = useState(true);
 
   const projectData = useSelector((state) => state.project);
   const dispatch = useDispatch();
@@ -27,7 +27,6 @@ const Search = () => {
       clearTimeout(timer);
       timer = setTimeout(() => func.apply(context, args), delay);
     };
-    
   };
 
   const handleSearch = (value) => {
@@ -45,9 +44,8 @@ const Search = () => {
   const handleChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
-   
+
     debouncedSearch(value);
-   
   };
 
   // api calls
@@ -80,7 +78,7 @@ const Search = () => {
 
   return (
     <div id="searchmain">
-      <h1>Project details</h1>
+      <h1 className="project-details-header"> Project details</h1>
       <div className="search-bar">
         <input
           type="text"
@@ -89,7 +87,6 @@ const Search = () => {
           value={searchTerm}
           onChange={handleChange}
         />
-
       </div>
 
       <div id="nav">
@@ -104,53 +101,58 @@ const Search = () => {
       </div>
 
       <div id="project-main">
-        {searchTerm === ""
-          ?
-          isloading ? (<LoadingSpinner/>) :
-         ( projectData?.map((item, index) => (
+        {searchTerm === "" ? (
+          isloading ? (
+            <LoadingSpinner />
+          ) : (
+            projectData?.map((item, index) => (
               <div key={index}>
                 <div className="project-item">
                   <h1 className="project-index">{index + 1}. </h1>
-                  <div className="project-content">
-                    <Link
-                      to="/data"
-                      state={{ item: item._id, from: "search" }}
-                      className="project-link"
-                    >
+                  <Link
+                    to="/data"
+                    state={{ item: item._id, from: "search" }}
+                    className="project-link"
+                  >
+                    <div className="project-content">
                       <h1 className="customer-name">{item.customer}</h1>
-                    </Link>
-                    <h1 className="sl-no">{item.turbineframesr}</h1>
-                  </div>
+
+                      <h1 className="sl-no">{item.turbineframesr}</h1>
+                    </div>
+                  </Link>
                   <div className="delete-button">
                     <button onClick={() => handledelete(item._id)}>
-                      <MdDeleteForever  className="delete-icon"/>
+                      <MdDeleteForever className="delete-icon" />
                     </button>
                   </div>
                 </div>
               </div>
-            )))
-          : searchResults?.map((item, index) => (
-              <div key={index}>
-                <div className="project-item">
-                  <h1 className="project-index">{index + 1}</h1>
-                  <div className="project-content">
-                    <Link
-                      to="/data"
-                      state={{ item: item._id, from: "search" }}
-                      className="project-link"
-                    >
-                      <h1 className="customer-name">{item.customer}</h1>
-                    </Link>
-                    <h1 className="sl-no">{item.turbineframesr}</h1>
-                  </div>
-                  <div className="delete-button">
-                    <button onClick={() => handledelete(item._id)}>
-                      <MdDeleteForever  className="delete-icon" />
-                    </button>
-                  </div>
+            ))
+          )
+        ) : (
+          searchResults?.map((item, index) => (
+            <div key={index}>
+              <div className="project-item">
+                <h1 className="project-index">{index + 1}</h1>
+                <div className="project-content">
+                  <Link
+                    to="/data"
+                    state={{ item: item._id, from: "search" }}
+                    className="project-link"
+                  >
+                    <h1 className="customer-name">{item.customer}</h1>
+                  </Link>
+                  <h1 className="sl-no">{item.turbineframesr}</h1>
+                </div>
+                <div className="delete-button">
+                  <button onClick={() => handledelete(item._id)}>
+                    <MdDeleteForever className="delete-icon" />
+                  </button>
                 </div>
               </div>
-            ))}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

@@ -279,7 +279,7 @@ export const Data = (props) => {
     }));
   };
 
-  const expoertPDF = () => {
+  const exportPDF = () => {
     const unit = "pt";
     const size = "A4"; // Use A1, A2, A3 or A4
     const orientation = "portrait"; // portrait or landscape
@@ -576,17 +576,11 @@ export const Data = (props) => {
    
     ];
     let content = {
-      // startY: 50,
       head: headers,
       body: items,
       theme:"grid",
       headStyles : { lineWidth: 1.5},
       bodyStyles : { lineWidth: 1.5},
-      // styles:{
-        
-      // //   lineWidth: 1.5,
-      // //   // fillColor: "pink"
-      // }
     };
     doc.text(title, marginLeft, 20);
     doc.autoTable(content);
@@ -596,13 +590,10 @@ export const Data = (props) => {
   return (
     <>
       <h1 className="heading">This is the data page</h1>
-      <div id="buttonbox">
-        <button onClick={expoertPDF}>Export PDF</button>
-        <button onClick={handleData}>Save</button>
-        {/* <button margin="20px" onClick={(e) => addingitems(false)}>
-          Edit
-        </button> */}
-      </div>
+      <div className="button-container">
+  <button className="export-button" onClick={exportPDF}>Export PDFFF</button>
+  <button className="save-button" onClick={handleData}>Save</button>
+</div>
       <div id="content">
         <table id="maintable">
           <tbody>
@@ -612,19 +603,19 @@ export const Data = (props) => {
               </th>
             </tr>
             <tr>
-              <td>
-                <h1>Customer :</h1>
-              </td>
-              <td colSpan={5}>{projectdata.customer}</td>
+              <th colSpan={2}>
+               Customer :
+              </th>
+              <td colSpan={4}>{projectdata.customer}</td>
             </tr>
             <tr>
-              <td>Contant No:</td>
+              <th colSpan={2}>Contract No :</th>
               <td>{projectdata.contactno}</td>
-              <td>TurbineFrame SrNo :</td>
-              <td colSpan={3}>{projectdata.turbineframesr}</td>
+              <th>TurbineFrame SrNo :</th>
+              <td colSpan={2}>{projectdata.turbineframesr}</td>
             </tr>
             <tr>
-              <th>Sl no</th>
+              <th id="sl-no">Sl No:</th>
               <th colSpan={2}>Item desc</th>
               <th>TTl desc</th>
               <th>HYD test</th>
@@ -1128,7 +1119,7 @@ export const Data = (props) => {
               </td>
             </tr>
             <tr>
-              <th scope="rowgroup">6</th>
+              <th scope="rowgroup">7</th>
               <th colSpan={2} scope="rowgroup">
                 Stop & Emergency valve Column -II
               </th>

@@ -243,62 +243,60 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
     
       return (
         <Modal
-          isOpen={isOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Modal Form"
-        >
-          <h2>Modal Form</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label> customer</label>
-              <input
-                type="text"
-                placeholder="customer"
-                value={newItem.customer}
-                onChange={(e) =>
-                  setNewItem({ ...newItem, customer: e.target.value })
-                }
-              />
-            </div>
-            <div>
-              <label>contactno</label>
-              <input
-                type="text"
-                placeholder="contactno"
-                value={newItem.contactno}
-                onChange={(e) =>
-                  setNewItem({ ...newItem, contactno: e.target.value })
-                }
-              />
-            </div>
-            <div>
-              <label> turbineframesr</label>
-              <input 
-                placeholder=" turbineframesrt"
-                value={newItem.turbineframesr}
-                onChange={(e) =>
-                  setNewItem({ ...newItem,turbineframesr: e.target.value })
-                }
-              />
-            </div>
-            <div>
-              {/* <label>DATE</label>
-              <input
-                type="date"
-                placeholder="date"
-                value={newItem.date}
-                onChange={(e) => setNewItem({ ...newItem, date: e.target.value })}
-              /> */}
-            </div>
-            <button className="modal-button" type="submit">
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Modal Form"
+        className="custom-modal"
+      >
+        <h2 className="modal-title">Modal Form</h2>
+        <form onSubmit={handleSubmit} className="modal-form">
+          <div className="form-group">
+            <label htmlFor="customer">Customer</label>
+            <input
+              type="text"
+              id="customer"
+              placeholder="Enter customer name"
+              value={newItem.customer}
+              onChange={(e) =>
+                setNewItem({ ...newItem, customer: e.target.value })
+              }
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="contactno">Contract No</label>
+            <input
+              type="text"
+              id="contactno"
+              placeholder="Enter contract number"
+              value={newItem.contactno}
+              onChange={(e) =>
+                setNewItem({ ...newItem, contactno: e.target.value })
+              }
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="turbineframesr">Turbine Frame SR</label>
+            <input
+              type="text"
+              id="turbineframesr"
+              placeholder="Enter turbine frame SR"
+              value={newItem.turbineframesr}
+              onChange={(e) =>
+                setNewItem({ ...newItem, turbineframesr: e.target.value })
+              }
+            />
+          </div>
+          <div className="form-actions">
+            <button className="modal-button submit-button" type="submit">
               Submit
             </button>
-          </form>
-          <button className="modal-button" onClick={closeModal}>
-            Close
-          </button>
-        </Modal>
+            <button className="modal-button close-button" onClick={closeModal}>
+              Close
+            </button>
+          </div>
+        </form>
+      </Modal>
       );
     };
     

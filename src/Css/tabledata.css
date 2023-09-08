@@ -2,6 +2,15 @@
     padding: 10px;
     margin: auto;
 }
+#sl-no{
+    /* padding: 2px; */
+    margin: 1px;
+    /* border: 1px solid red; */
+}
+
+table {
+    border-collapse: collapse;
+  }
 
 textarea {
     width: 100%;
@@ -10,5 +19,37 @@ textarea {
     border: 0px solid #ccc;
     border-radius: 5px;
     /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
-    /* resize: vertical; Allow vertical resizing */
+    /* resize: vertical; */
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .export-button, .save-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff; /* Change this to your preferred button color */
+    color: #fff; /* Button text color */
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .export-button:hover, .save-button:hover {
+    background-color: #0056b3; /* Change this to your preferred hover color */
+    transform: scale(1.05); /* Enlarge the button on hover */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .button-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

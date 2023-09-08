@@ -1,12 +1,12 @@
-
 #searchmain {
   width: 100%;
-  height:100%;
+  height: 1000px;
   /* max-width: 1200px; */
   margin: 0 auto;
   padding: 20px;
   /* box-sizing: border-box; */
   background-color: #f4f4f4;
+ 
 }
 
 .search-bar {
@@ -59,7 +59,6 @@
   background-color: #0056b3;
 }
 
-
 #project-main {
   display: block;
   padding: 0px 35px 0px 35px;
@@ -68,12 +67,18 @@
 }
 
 .project-content {
-  border: 1px solid blue;
+  
   display: block;
   /* align-items:; */
   margin-right: auto;
   margin-left: 10px;
+  /* border: 1px solid red; */
   /* padding: 10px; */
+}
+.project-item:hover{
+  /* scale: 1.1 10%;   */
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 .project-item {
   display: flex;
@@ -85,20 +90,37 @@
   border-radius: 4px;
 }
 
-.project-link {
+
+
+.customer-name {
   font-size: 1.3rem;
-  align-items: flex-start;
+  /* align-items: flex-start; */
 }
 
-.sl-no{
-  color:gray;
+.sl-no {
+  /* border: 1px solid red; */
+  font-size: 0.7rem;
+  color: gray;
+  margin: 0;
 }
 .delete-button {
   margin-left: auto;
 }
 
-.delete-icon{
-  font-size: 24px;  
-  color: red;    
-  margin-right: 5px; 
+.delete-icon {
+  font-size: 24px;
+  color: red;
+  margin-right: 5px;
+}
+
+
+/* Header styles */
+.project-details-header {
+  /* background-color: #007bff; Blue background color */
+  color: #240505d4; /* White text color */
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); Subtle shadow */
 }
