@@ -3,25 +3,6 @@
     margin: auto;
 }
 
-/* input{
-    width: auto; /* Allow input elements to adjust their width based on content 
-            box-sizing: border-box; 
-} */
-
-/* table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-} */
-
 textarea {
     width: 100%;
     padding: 10px;
