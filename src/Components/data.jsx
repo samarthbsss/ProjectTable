@@ -288,7 +288,8 @@ export const Data = (props) => {
     const doc = new jsPDF(orientation, unit, size);
     doc.setFontSize(10);
 
-    const title = `${projectdata.customer} :`;
+    const title = 
+    `Customer: ${projectdata.customer} `;
 
     const headers = [
       [
@@ -578,7 +579,14 @@ export const Data = (props) => {
       // startY: 50,
       head: headers,
       body: items,
-      theme:"grid"
+      theme:"grid",
+      headStyles : { lineWidth: 1.5},
+      bodyStyles : { lineWidth: 1.5},
+      // styles:{
+        
+      // //   lineWidth: 1.5,
+      // //   // fillColor: "pink"
+      // }
     };
     doc.text(title, marginLeft, 20);
     doc.autoTable(content);
@@ -1897,7 +1905,7 @@ export const Data = (props) => {
                 <textarea
                   // id="stop&"
                   type="text"
-                  value={projectdata.guidebladecarrier1[0].top.hyd}
+                  value={projectdata.guidebladecarrier1[0]?.top?.hyd || "NA"}
                   onChange={(e) =>
                     setprojectdata((projectdata) => ({
                       ...projectdata,

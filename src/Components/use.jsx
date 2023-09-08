@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LoadingSpinner from './loading';
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -38,6 +39,7 @@ function SearchBar() {
 
   return (
     <div>
+      <LoadingSpinner/>
       <input
         type="text"
         placeholder="Search..."

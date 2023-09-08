@@ -232,8 +232,6 @@ const ProjectModalForm = ({ isOpen, closeModal }) => {
         console.log(newItem);
         dispatch(addproject(newItem));
         dispatch(fetchProject());
-        // dispatch(addData(newItem));
-        // dispatch(fetchData());
         closeModal();
         setNewItem({
           customer: "",

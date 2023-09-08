@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import "../Css/search.css";
 import ProjectModalForm from "./projectmodal";
 import axios from "axios";
+import { MdDeleteForever } from "react-icons/md";
+import LoadingSpinner from "./loading";
 
 const Search = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [isloading, setLoading]=useState(true);
 
   const projectData = useSelector((state) => state.project);
   const dispatch = useDispatch();
@@ -18,18 +21,20 @@ const Search = () => {
   // search and its funtionalitessss
   const debounce = (func, delay) => {
     let timer;
-    return function() {
+    return function () {
       const context = this;
       const args = arguments;
       clearTimeout(timer);
       timer = setTimeout(() => func.apply(context, args), delay);
     };
+    
   };
 
   const handleSearch = (value) => {
-    const filteredData = projectData.filter(item =>
-      item.customer.toLowerCase().includes(value.toLowerCase()) || 
-      item.turbineframesr.includes(value)
+    const filteredData = projectData.filter(
+      (item) =>
+        item.customer.toLowerCase().includes(value.toLowerCase()) ||
+        item.turbineframesr.includes(value)
     );
     setSearchResults(filteredData);
   };
@@ -40,7 +45,9 @@ const Search = () => {
   const handleChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
+   
     debouncedSearch(value);
+   
   };
 
   // api calls
@@ -56,8 +63,10 @@ const Search = () => {
   };
 
   useEffect(() => {
-    console.log("working");
+    setLoading(true);
     dispatch(fetchProject());
+    setLoading(false);
+    console.log("working", projectData);
   }, []);
 
   // modal property
@@ -73,17 +82,18 @@ const Search = () => {
     <div id="searchmain">
       <h1>Project details</h1>
       <div className="search-bar">
-        <input type="text" placeholder="Search..." className="search-input"
+        <input
+          type="text"
+          placeholder="Search..."
+          className="search-input"
           value={searchTerm}
           onChange={handleChange}
         />
-        {/* <button className="search-button">
-          Search
-        </button> */}
+
       </div>
 
       <div id="nav">
-        <button className="button-30" onClick={openModal}>
+        <button className="add-project" onClick={openModal}>
           Add project
         </button>
         <ProjectModalForm
@@ -92,49 +102,55 @@ const Search = () => {
           closeModal={closeModal}
         />
       </div>
-      <div id="project-names">
-        {
-          searchTerm === '' ?
-          projectData?.map((item, index) => (
-          <div key={index}>
-            <div className="project-item">
-              <h1 className="project-index">{index + 1}</h1>
-              <Link
-                to="/data"
-                state={{ item: item._id, from: "search" }}
-                className="project-link"
-              >
-                <h1 className="customer-name">{item.customer}</h1>
-              </Link>
-              <h1 className="sl-no">{item.turbineframesr}</h1>
-            </div>
-            <div>
-              <button onClick={() => handledelete(item._id)}>
-                Delete Project
-              </button>
-            </div>
-          </div>
-        )):
-        searchResults?.map((item, index) => (
-          <div key={index}>
-            <div className="project-item">
-              <h1 className="project-index">{index + 1}</h1>
-              <Link
-                to="/data"
-                state={{ item: item._id, from: "search" }}
-                className="project-link"
-              >
-                <h1 className="customer-name">{item.customer}</h1>
-              </Link>
-              <h1 className="sl-no">{item.turbineframesr}</h1>
-            </div>
-            <div>
-              <button onClick={() => handledelete(item._id)}>
-                Delete Project
-              </button>
-            </div>
-          </div>))
-      }
+
+      <div id="project-main">
+        {searchTerm === ""
+          ?
+          isloading ? (<LoadingSpinner/>) :
+         ( projectData?.map((item, index) => (
+              <div key={index}>
+                <div className="project-item">
+                  <h1 className="project-index">{index + 1}. </h1>
+                  <div className="project-content">
+                    <Link
+                      to="/data"
+                      state={{ item: item._id, from: "search" }}
+                      className="project-link"
+                    >
+                      <h1 className="customer-name">{item.customer}</h1>
+                    </Link>
+                    <h1 className="sl-no">{item.turbineframesr}</h1>
+                  </div>
+                  <div className="delete-button">
+                    <button onClick={() => handledelete(item._id)}>
+                      <MdDeleteForever  className="delete-icon"/>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )))
+          : searchResults?.map((item, index) => (
+              <div key={index}>
+                <div className="project-item">
+                  <h1 className="project-index">{index + 1}</h1>
+                  <div className="project-content">
+                    <Link
+                      to="/data"
+                      state={{ item: item._id, from: "search" }}
+                      className="project-link"
+                    >
+                      <h1 className="customer-name">{item.customer}</h1>
+                    </Link>
+                    <h1 className="sl-no">{item.turbineframesr}</h1>
+                  </div>
+                  <div className="delete-button">
+                    <button onClick={() => handledelete(item._id)}>
+                      <MdDeleteForever  className="delete-icon" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
       </div>
     </div>
   );
