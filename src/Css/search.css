@@ -94,6 +94,7 @@
 
 .customer-name {
   font-size: 1.3rem;
+  /* align-items: flex-start; */
 }
 
 .sl-no {
@@ -108,17 +109,18 @@
 
 .delete-icon {
   font-size: 24px;
-  color: rgb(55, 0, 255);
+  color: red;
   margin-right: 5px;
 }
 
 
 /* Header styles */
 .project-details-header {
-
-  color: #240505d4; 
+  /* background-color: #007bff; Blue background color */
+  color: #240505d4; /* White text color */
   text-align: center;
   padding-bottom: 10px;
   font-size: 24px;
   font-weight: bold;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); Subtle shadow */
 }
