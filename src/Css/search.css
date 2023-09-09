@@ -116,11 +116,10 @@
 
 /* Header styles */
 .project-details-header {
-  /* background-color: #007bff; Blue background color */
-  color: #240505d4; /* White text color */
+
+  color: #240505d4; 
   text-align: center;
   padding-bottom: 10px;
   font-size: 24px;
   font-weight: bold;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); Subtle shadow */
 }
