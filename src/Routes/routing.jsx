@@ -7,8 +7,8 @@ import Search from '../Components/search';
 import { Data } from '../Components/data';
 import SearchBar from '../Components/use';
 
-// axios.defaults.baseURL ='https://adorable-swimsuit-hare.cyclic.cloud';
-axios.defaults.baseURL ='http://localhost:8080';
+axios.defaults.baseURL ='https://adorable-swimsuit-hare.cyclic.cloud';
+// axios.defaults.baseURL ='http://localhost:8080';
 
 const Routing = () => {
     return <>
