@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import LoadingSpinner from './loading';
+import '../Css/use.css'; // Import the CSS file
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   
   // Simulated data for this example
-  const data = ['Apple', 'Banana', 'Cherry','Fiiig','Fiig', 'Date', 'Elderberry', 'Fig', 'Grape', 'Honeydew'];
+  const data = ['Apple', 'Banana', 'Cherry', 'Fiiig', 'Fiig', 'Date', 'Elderberry', 'Fig', 'Grape', 'Honeydew'];
 
   // Function to handle debouncing
   const debounce = (func, delay) => {
@@ -38,17 +39,18 @@ function SearchBar() {
   };
 
   return (
-    <div>
-      <LoadingSpinner/>
+    <div className="undertale-container">
+      <LoadingSpinner />
       <input
+        className="undertale-input"
         type="text"
         placeholder="Search..."
         value={searchTerm}
         onChange={handleChange}
       />
-      <ul>
+      <ul className="undertale-list">
         {searchResults.map((result, index) => (
-          <li key={index}>{result}</li>
+          <li key={index} className="undertale-list-item">{result}</li>
         ))}
       </ul>
     </div>

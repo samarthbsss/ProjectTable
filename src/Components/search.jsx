@@ -33,7 +33,7 @@ const Search = () => {
     const filteredData = projectData.filter(
       (item) =>
         item.customer.toLowerCase().includes(value.toLowerCase()) ||
-        item.turbineframesr.includes(value)
+        item.turbineframesr.includes(value) || item.contactno.toLowerCase().includes(value.toLowerCase())
     );
     setSearchResults(filteredData);
   };
@@ -116,7 +116,7 @@ const Search = () => {
                   >
                     <div className="project-content">
                       <h1 className="customer-name">{item.customer}</h1>
-
+                      <h1 className="contract-no">{item.contactno}</h1>
                       <h1 className="sl-no">{item.turbineframesr}</h1>
                     </div>
                   </Link>
@@ -132,24 +132,25 @@ const Search = () => {
         ) : (
           searchResults?.map((item, index) => (
             <div key={index}>
-              <div className="project-item">
-                <h1 className="project-index">{index + 1}</h1>
-                <div className="project-content">
+            <div className="project-item">
+                  <h1 className="project-index">{index + 1}. </h1>
                   <Link
                     to="/data"
                     state={{ item: item._id, from: "search" }}
                     className="project-link"
                   >
-                    <h1 className="customer-name">{item.customer}</h1>
+                    <div className="project-content">
+                      <h1 className="customer-name">{item.customer}</h1>
+                      <h1 className="contract-no">{item.contactno}</h1>
+                      <h1 className="sl-no">{item.turbineframesr}</h1>
+                    </div>
                   </Link>
-                  <h1 className="sl-no">{item.turbineframesr}</h1>
+                  <div className="delete-button">
+                    <button onClick={() => handledelete(item._id)}>
+                      <MdDeleteForever className="delete-icon" />
+                    </button>
+                  </div>
                 </div>
-                <div className="delete-button">
-                  <button onClick={() => handledelete(item._id)}>
-                    <MdDeleteForever className="delete-icon" />
-                  </button>
-                </div>
-              </div>
             </div>
           ))
         )}

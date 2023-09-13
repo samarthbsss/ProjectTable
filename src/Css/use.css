@@ -1,0 +1,44 @@
+/* Undertale-inspired styles */
+.undertale-container {
+    /* background-image: url('undertale_background.jpg'); */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Comic Sans MS', sans-serif;
+  }
+  
+  .undertale-input {
+    padding: 10px;
+    border: 2px solid #f4a442;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto;
+  }
+  
+  .undertale-input::placeholder {
+    color: #f4a442;
+  }
+  
+  .undertale-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .undertale-list-item {
+    margin: 5px 0;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .undertale-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter semi-transparent background on hover */
+  }
+  

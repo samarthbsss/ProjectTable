@@ -581,6 +581,7 @@ export const Data = (props) => {
       theme:"grid",
       headStyles : { lineWidth: 1.5},
       bodyStyles : { lineWidth: 1.5},
+      // fontSize:1,
     };
     doc.text(title, marginLeft, 20);
     doc.autoTable(content);
@@ -589,28 +590,42 @@ export const Data = (props) => {
 
   return (
     <>
-      <h1 className="heading">This is the data page</h1>
+      {/* <h1 className="heading">This is the data page</h1> */}
       <div className="button-container">
-  <button className="export-button" onClick={exportPDF}>Export PDFFF</button>
+  <button className="export-button" onClick={exportPDF}>Export PDF</button>
   <button className="save-button" onClick={handleData}>Save</button>
 </div>
       <div id="content">
         <table id="maintable">
           <tbody>
             <tr>
-              <th colSpan="6">
-                <h1>Document Required for Quality Dossier From Ndt</h1>
+              <th colSpan={6}>
+                <h1>Document Required for Quality Dossier From NDT</h1>
               </th>
             </tr>
             <tr>
               <th colSpan={2}>
                Customer :
               </th>
-              <td colSpan={4}>{projectdata.customer}</td>
+              <td colSpan={4}>
+              {projectdata.customer}
+              {/* <textarea
+                
+                type="text"
+                value={projectdata.customer}
+                onChange={(e)=> setprojectdata((projectdata)=>({
+                  ...projectdata,
+                  customer:e.target.value,
+                  ...projectdata.customer.split(1)
+                }))}               
+              /> */}
+              </td>
             </tr>
             <tr>
               <th colSpan={2}>Contract No :</th>
-              <td>{projectdata.contactno}</td>
+              <td>{projectdata.contactno} 
+              
+             </td>
               <th>TurbineFrame SrNo :</th>
               <td colSpan={2}>{projectdata.turbineframesr}</td>
             </tr>
@@ -875,7 +890,6 @@ export const Data = (props) => {
                 />
               </td>
             </tr>
-
             <tr>
               <th rowSpan={2} scope="rowgroup">
                 3
