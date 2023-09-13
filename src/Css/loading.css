@@ -100,4 +100,14 @@
           transform: rotate(360deg);
         }
       }
-      
+
+      .message {
+        background-color: #f2f2f2; /* Light gray background */
+        padding: 20px; /* Add some padding for spacing */
+     
+   
+        text-align: center; /* Center-align the text */
+        font-family: Arial, sans-serif; /* Choose a relaxing font */
+        font-size: 16px; /* Adjust font size as needed */
+        line-height: 1.5; /* Line height for readability */
+      }

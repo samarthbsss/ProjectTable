@@ -8,6 +8,7 @@ import ProjectModalForm from "./projectmodal";
 import axios from "axios";
 import { MdDeleteForever } from "react-icons/md";
 import LoadingSpinner from "./loading";
+import { TextRandom } from "./randomtext";
 
 const Search = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -130,7 +131,12 @@ const Search = () => {
             ))
           )
         ) : (
-          searchResults?.map((item, index) => (
+          searchResults.length=== 0 ? 
+          
+        (<TextRandom/>)
+          :
+          (
+            searchResults?.map((item, index) => (
             <div key={index}>
             <div className="project-item">
                   <h1 className="project-index">{index + 1}. </h1>
@@ -153,6 +159,7 @@ const Search = () => {
                 </div>
             </div>
           ))
+          )
         )}
       </div>
     </div>

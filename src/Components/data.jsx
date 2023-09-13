@@ -248,10 +248,13 @@ export const Data = (props) => {
       setedit(true)
       toast({
         title: 'Table Saved!',
-        description: "You can export the tabel now",
+        description: "You can export the table now",
         status: 'success',
-        duration: 3000,
+        duration: 5000,
         isClosable: true,
+        containerStyle: {
+         marginBottom:"10px",
+        },
       })
     } catch (error) {
       console.error(error);
