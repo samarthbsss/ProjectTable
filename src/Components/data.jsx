@@ -4,11 +4,12 @@ import axios from "axios";
 import "../Css/tabledata.css";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+// import { ToastExample } from "./toast";
+import { useToast } from '@chakra-ui/react'
 
 export const Data = (props) => {
-  // const [data, getdata] = useState({});
-  // const [loading, setLoading] = useState(true);
-  // const [add, addingitems] = useState(false);
+  const [edit, setedit] = useState(true);
+  const toast = useToast()
   const [projectdata, setprojectdata] = useState({
     customer: "",
     contactno: "",
@@ -228,7 +229,7 @@ export const Data = (props) => {
 
   useEffect(() => {
     fetchData();
-  },[]);
+  }, []);
 
   const fetchData = async () => {
     try {
@@ -244,7 +245,14 @@ export const Data = (props) => {
     try {
       await axios.post(`api/project/${item}/update`, projectdata);
       fetchData(item);
-     
+      setedit(true)
+      toast({
+        title: 'Table Saved!',
+        description: "You can export the tabel now",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
     } catch (error) {
       console.error(error);
     }
@@ -258,11 +266,15 @@ export const Data = (props) => {
 
         [data]: e.target.value,
       },
-      // ...projectdata.category.slice(1),
     }));
-    // console.log(e.target.value ,category ,data);
-    console.log(projectdata, "from handle Datachange");
   };
+
+  const handleHeadingChange = (e, category) => {
+    setprojectdata((projectdata) => ({
+      ...projectdata,
+      [category]: e.target.value
+    }))
+  }
 
   const handleguideblade = (e, category, key, data) => {
     setprojectdata((projectdata) => ({
@@ -288,8 +300,8 @@ export const Data = (props) => {
     const doc = new jsPDF(orientation, unit, size);
     doc.setFontSize(10);
 
-    const title = 
-    `Customer: ${projectdata.customer} `;
+    const title =
+      `Customer: ${projectdata.customer} `;
 
     const headers = [
       [
@@ -306,8 +318,8 @@ export const Data = (props) => {
         { content: "Steam End Casing", rowSpan: 2 },
         "Top",
         `${projectdata.steamend[0].top.ttldesc}`,
-       
-        {rowSpan :2,  content:`${projectdata.steamend[0].top.hyd}`},
+
+        { rowSpan: 2, content: `${projectdata.steamend[0].top.hyd}` },
         `${projectdata.steamend[0]?.top?.date?.split("T")[0] || ""}`,
       ],
       [
@@ -320,7 +332,7 @@ export const Data = (props) => {
         { content: "Exhast End Casing", rowSpan: 2 },
         "Top",
         `${projectdata.exhastendcasing[0].top.ttldesc}`,
-        {rowSpan :2,  content:`${projectdata.exhastendcasing[0].top.hyd}`},
+        { rowSpan: 2, content: `${projectdata.exhastendcasing[0].top.hyd}` },
         `${projectdata.exhastendcasing[0]?.top?.date?.split("T")[0] || ""}`,
       ],
       [
@@ -333,7 +345,7 @@ export const Data = (props) => {
         { content: "Inner casting", rowSpan: 2 },
         "Top",
         `${projectdata.innercasing[0].top.ttldesc}`,
-        {rowSpan :2,  content:`${projectdata.innercasing[0].top.hyd}`},
+        { rowSpan: 2, content: `${projectdata.innercasing[0].top.hyd}` },
         `${projectdata.innercasing[0]?.top?.date?.split("T")[0] || ""}`,
       ],
       [
@@ -369,7 +381,7 @@ export const Data = (props) => {
         `${projectdata.stop$emergencyvalvebody4.hyd}`,
         `${projectdata.stop$emergencyvalvebody4?.date?.split("T")[0] || ""}`,
       ],
-        [
+      [
         "8",
         { content: "Nozzle Chest", colSpan: 2 },
         `${projectdata.nozzlechest.ttldesc}`,
@@ -454,21 +466,21 @@ export const Data = (props) => {
         `${projectdata.throttlevalvebox.date?.split("T")[0] || ""}`,
       ],
       [
-        {content:"20", rowSpan:2},
+        { content: "20", rowSpan: 2 },
         { content: "Power/Relay Cylinder", rowSpan: 2 },
         "Hp",
-       { content:`${projectdata.power.ttldesc}`, rowSpan: 2},
-       { content:`${projectdata.power.hyd}`, rowSpan:2 },
-        {content: `${projectdata.power.date?.split("T")[0] || ""}` ,rowSpan: 2},
+        { content: `${projectdata.power.ttldesc}`, rowSpan: 2 },
+        { content: `${projectdata.power.hyd}`, rowSpan: 2 },
+        { content: `${projectdata.power.date?.split("T")[0] || ""}`, rowSpan: 2 },
       ],
       [
         "Grid value /LP"
       ],
       [
         "21",
-        {content:"Rotor", colSpan:2},
+        { content: "Rotor", colSpan: 2 },
         `${projectdata.rotor.ttldesc}`,
-        {content: `${projectdata.rotor.hyd}`, colSpan:2}
+        { content: `${projectdata.rotor.hyd}`, colSpan: 2 }
 
       ],
       [
@@ -502,16 +514,16 @@ export const Data = (props) => {
       [
         "26",
         { content: "Baseplate", colSpan: 2 },
-        {content: `${projectdata.baseplate.ttldesc}`, colSpan :2},
+        { content: `${projectdata.baseplate.ttldesc}`, colSpan: 2 },
         `${projectdata.baseplate.date?.split("T")[0] || ""}`,
-      
+
       ],
       [
         "27",
         { content: "Gearbox", colSpan: 2 },
-       {content: `${projectdata.gearbox.ttldesc}`, colSpan :2},
-       `${projectdata.baseplate.date?.split("T")[0] || ""}`,
-       
+        { content: `${projectdata.gearbox.ttldesc}`, colSpan: 2 },
+        `${projectdata.baseplate.date?.split("T")[0] || ""}`,
+
       ],
       [
         "28",
@@ -528,59 +540,59 @@ export const Data = (props) => {
         `${projectdata.lppedestal.date?.split("T")[0] || ""}`,
       ],
       [
-       {content:"30", rowSpan:2},
+        { content: "30", rowSpan: 2 },
         { content: "Guide Blade Carrier-I", rowSpan: 2 },
         "Top",
         `${projectdata.guidebladecarrier1[0].top.ttldesc}`,
-       { styles: {textalign:"center"}, colSpan:2, rowSpan:8, content:`${projectdata.guidebladecarrier1[0].top.hyd}`}
+        { styles: { textalign: "center" }, colSpan: 2, rowSpan: 8, content: `${projectdata.guidebladecarrier1[0].top.hyd}` }
       ],
       [
         "Bottom",
-       { content: `${projectdata.guidebladecarrier1[0].bottom.ttldesc}`},
+        { content: `${projectdata.guidebladecarrier1[0].bottom.ttldesc}` },
       ],
       [
-        {content:"31", rowSpan:2},
-         { content: "Guide Blade Carrier-II", rowSpan: 2 },
-         "Top",
-         `${projectdata.guidebladecarrier2[0].top.ttldesc}`,
-      
-       ],
-       [
-         "Bottom",
-    `${projectdata.guidebladecarrier2[0].bottom.ttldesc}`,
-       ],
-       [
-        {content:"32", rowSpan:2},
-         { content: "Guide Blade Carrier-III", rowSpan: 2 },
-         "Top",
-         `${projectdata.guidebladecarrier3[0].top.ttldesc}`,
-      
-       ],
-       [
-         "Bottom",
-       `${projectdata.guidebladecarrier3[0].bottom.ttldesc}`,
-       ],
-       [
-        {content:"33", rowSpan:2},
-         { content: "Guide Blade Carrier-IV", rowSpan: 2 },
-         "Top",
-         `${projectdata.guidebladecarrier4[0].top.ttldesc}`,
-      
-       ],
-       [
-         "Bottom",
-      `${projectdata.guidebladecarrier4[0].bottom.ttldesc}`,
-       ]
+        { content: "31", rowSpan: 2 },
+        { content: "Guide Blade Carrier-II", rowSpan: 2 },
+        "Top",
+        `${projectdata.guidebladecarrier2[0].top.ttldesc}`,
+
+      ],
+      [
+        "Bottom",
+        `${projectdata.guidebladecarrier2[0].bottom.ttldesc}`,
+      ],
+      [
+        { content: "32", rowSpan: 2 },
+        { content: "Guide Blade Carrier-III", rowSpan: 2 },
+        "Top",
+        `${projectdata.guidebladecarrier3[0].top.ttldesc}`,
+
+      ],
+      [
+        "Bottom",
+        `${projectdata.guidebladecarrier3[0].bottom.ttldesc}`,
+      ],
+      [
+        { content: "33", rowSpan: 2 },
+        { content: "Guide Blade Carrier-IV", rowSpan: 2 },
+        "Top",
+        `${projectdata.guidebladecarrier4[0].top.ttldesc}`,
+
+      ],
+      [
+        "Bottom",
+        `${projectdata.guidebladecarrier4[0].bottom.ttldesc}`,
+      ]
 
 
-   
+
     ];
     let content = {
       head: headers,
       body: items,
-      theme:"grid",
-      headStyles : { lineWidth: 1.5},
-      bodyStyles : { lineWidth: 1.5},
+      theme: "grid",
+      headStyles: { lineWidth: 1.5 },
+      bodyStyles: { lineWidth: 1.5 },
       // fontSize:1,
     };
     doc.text(title, marginLeft, 20);
@@ -592,9 +604,10 @@ export const Data = (props) => {
     <>
       {/* <h1 className="heading">This is the data page</h1> */}
       <div className="button-container">
-  <button className="export-button" onClick={exportPDF}>Export PDF</button>
-  <button className="save-button" onClick={handleData}>Save</button>
-</div>
+        <button className="export-button" onClick={exportPDF}>Export PDF</button>
+        <button className="save-button" onClick={handleData}>Save</button>
+        <button className="save-button" onClick={() => setedit(!edit)}>Edit</button>
+      </div>
       <div id="content">
         <table id="maintable">
           <tbody>
@@ -605,29 +618,61 @@ export const Data = (props) => {
             </tr>
             <tr>
               <th colSpan={2}>
-               Customer :
+                Customer :
               </th>
-              <td colSpan={4}>
-              {projectdata.customer}
-              {/* <textarea
-                
-                type="text"
-                value={projectdata.customer}
-                onChange={(e)=> setprojectdata((projectdata)=>({
-                  ...projectdata,
-                  customer:e.target.value,
-                  ...projectdata.customer.split(1)
-                }))}               
-              /> */}
-              </td>
+              {
+                edit ? (
+                  <td colSpan={4}>
+                    {projectdata.customer}
+
+                  </td>
+                ) : (
+                  <td colSpan={4}>
+
+                    <textarea
+                      type="text"
+                      value={projectdata.customer}
+                      onChange={(e) => handleHeadingChange(e, "customer")}
+                    />
+                  </td>
+                )
+              }
             </tr>
             <tr>
               <th colSpan={2}>Contract No :</th>
-              <td>{projectdata.contactno} 
-              
-             </td>
+              {
+                edit ? (
+                  <td colSpan={2}>
+                    {projectdata.contactno}
+
+                  </td>
+                ) : (
+                  <td colSpan={2}>
+
+                    <textarea
+                      type="text"
+                      value={projectdata.contactno}
+                      onChange={(e) => handleHeadingChange(e, "contactno")}
+                    />
+                  </td>
+                )
+              }
+
               <th>TurbineFrame SrNo :</th>
-              <td colSpan={2}>{projectdata.turbineframesr}</td>
+           
+              {
+                edit ? (
+                  <td colSpan={2}>{projectdata.turbineframesr}</td>
+                ) : (
+                  <td colSpan={2}>
+                    <textarea
+                      type="text"
+                      value={projectdata.turbineframesr}
+                      onChange={(e) => handleHeadingChange(e, "turbineframesr")}
+                    />
+                  </td>
+                )
+              }
             </tr>
             <tr>
               <th id="sl-no">Sl No:</th>
